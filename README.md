@@ -34,6 +34,39 @@ Your site will be live at `https://<your-username>.github.io/<your-repo>/` withi
 
 Open that URL on your phone's browser. Tap a specimen, then drag to rotate and pinch to zoom. On supported phones (most recent iPhones and Android), there's an AR button that lets a student place the model in the room in front of them.
 
+## Labeling organelles (hotspots)
+
+Each specimen already has placeholder labels for common organelles, written at a class 9–10 level, in `assets/viewer.js`. Right now they all sit at position `0 0 0` (the model's center) — you need to move each one onto the actual part using **Placement Mode**:
+
+1. Open a specimen on the live site (or run it locally — see below).
+2. Tap the **📍 pin button** in the top-right corner to turn on Placement Mode.
+3. Tap directly on the part of the model you want to label (e.g., the nucleus). A box appears below the model showing a `position` and `normal` value.
+4. Copy those two values into the matching hotspot entry in `assets/viewer.js`. For example, for the nucleus:
+   ```js
+   {
+     id: "nucleus",
+     position: "0.12 0.34 -0.05",   // ← paste what Placement Mode gave you
+     normal: "0.00 1.00 0.00",      // ← paste what Placement Mode gave you
+     title: "Nucleus",
+     text: "The largest organelle..."
+   }
+   ```
+5. Save, refresh, tap the pin button again to turn Placement Mode off, and check the label now sits on the right spot.
+6. Repeat for each organelle. Push your changes to GitHub when done.
+
+To edit the *text* of a label (e.g., swap in your exact textbook wording instead of the placeholder description), just change the `title` and `text` strings for that hotspot — no coordinate changes needed.
+
+### Running locally to calibrate faster
+
+Since `model-viewer` needs to fetch `.glb` files over HTTP (not directly from disk), open a quick local server from the project folder instead of double-clicking `index.html`:
+
+```bash
+# Python 3
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000` in your browser.
+
 ## Adding more specimens later
 
 1. Put the new `.glb` in `/models`.
