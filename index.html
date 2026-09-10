@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <title>Specimen Index — 3D Biology Models</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Specimen Index — 3D Biology Models</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
   <div class="wrap">
     <header class="masthead">
-      <h1>Specimen Index</h1>
-      <span class="tag">touch a plate to view in 3D</span>
+      <h1 id="site-title">Specimen Index</h1>
+      <div class="masthead-right">
+        <span class="tag" id="tag-index"></span>
+        <button id="lang-toggle" class="lang-btn"></button>
+      </div>
     </header>
 
-    <a class="plate" href="viewer.html?m=animal-cell">
-      <span class="num">01</span>
-      <span class="meta">
-        <h2>Animal Cell</h2>
-        <p>Organelles, membrane, nucleus</p>
-      </span>
-      <span class="go">→</span>
-    </a>
+    <div id="plates"></div>
 
-    <a class="plate" href="viewer.html?m=mitochondria">
-      <span class="num">02</span>
-      <span class="meta">
-        <h2>Mitochondria</h2>
-        <p>Cristae, matrix, double membrane</p>
-      </span>
-      <span class="go">→</span>
-    </a>
+    <div class="empty-note" id="empty-note"></div>
 
-
-    <a class="back-link-plain" href="credits.html">Model credits &amp; licenses →</a>
+    <a class="back-link-plain" href="credits.html" id="credits-link"></a>
   </div>
-</body>
 
+  <script src="assets/i18n.js"></script>
+  <script src="assets/index.js"></script>
+</body>
 </html>
